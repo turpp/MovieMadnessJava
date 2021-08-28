@@ -1,5 +1,8 @@
 import com.google.gson.Gson;
 import org.json.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -24,25 +27,33 @@ public class MovieDataFetch {
                 apiFetch.getInputStream()));
         String inputLine = in.readLine();
         in.close();
-        System.out.println(inputLine);
+
         return inputLine;
 
     }
 
     HashMap<String, String> movieObj = new HashMap<String, String>();
 
-    public static void convertToObj(String fetchResults){
+    public static void convertToObj(String fetchResults) throws ParseException {
 //        Gson gson = new Gson();
 //        System.out.println(gson.fromJson(fetchResults, Object[].class ));
 
-        ArrayList<String>[] myArr = new ArrayList[]{ new ArrayList(1), new ArrayList(2) };
-        JSONArray jArr = new JSONArray();
-// these will not be wrapped
-        jArr.putAll(myArr);
-// these will not be wrapped
-        jArr.putAll(fetchResults);
-// our jArr is now consistent.
-        System.out.println(jArr);
+//        ArrayList<String>[] myArr = new ArrayList[]{ new ArrayList(1), new ArrayList(2) };
+//        JSONArray jArr = new JSONArray();
+//// these will not be wrapped
+//        jArr.putAll(myArr);
+//// these will not be wrapped
+//        jArr.putAll(fetchResults);
+//// our jArr is now consistent.
+//        System.out.println(jArr);
+
+        Object obj = new JSONParser().parse(fetchResults);
+
+        JSONObject jo = (JSONObject) obj;
+
+        System.out.println(jo.get("results"));
+
+
 
     }
 }
