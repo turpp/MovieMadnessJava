@@ -6,10 +6,10 @@ import org.json.simple.parser.ParseException;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 
 public class MovieDataFetch {
@@ -35,23 +35,33 @@ public class MovieDataFetch {
     HashMap<String, String> movieObj = new HashMap<String, String>();
 
     public static void convertToObj(String fetchResults) throws ParseException {
-//        Gson gson = new Gson();
-//        System.out.println(gson.fromJson(fetchResults, Object[].class ));
-
-//        ArrayList<String>[] myArr = new ArrayList[]{ new ArrayList(1), new ArrayList(2) };
-//        JSONArray jArr = new JSONArray();
-//// these will not be wrapped
-//        jArr.putAll(myArr);
-//// these will not be wrapped
-//        jArr.putAll(fetchResults);
-//// our jArr is now consistent.
-//        System.out.println(jArr);
 
         Object obj = new JSONParser().parse(fetchResults);
 
         JSONObject jo = (JSONObject) obj;
 
-        System.out.println(jo.get("results"));
+
+        //with this i can add multiple fetches to one array list to iterate through
+        ArrayList <Object> ftest = new ArrayList<>();
+        ftest.add(jo.get("results"));
+
+        System.out.println(jo.get("results").getClass());
+        //getting in array
+//        JSONArray ja = (JSONArray) jo.get("results");
+//        Iterator itr2 = ja.iterator();
+//        Map address = ((Map)jo.get("results"));
+//        Iterator<Map.Entry> itr1 = address.entrySet().iterator();
+//
+//        while (itr2.hasNext())
+//        {
+//            itr1 = ((Map) itr2.next()).entrySet().iterator();
+//            while (itr1.hasNext()) {
+//                Map.Entry pair = itr1.next();
+//                System.out.println(pair.getKey() + " : " + pair.getValue());
+//            }
+//        }
+
+        System.out.println(ftest.get(0));
 
 
 
