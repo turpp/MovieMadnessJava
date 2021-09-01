@@ -1,6 +1,16 @@
 import com.google.gson.Gson;
+import info.movito.themoviedbapi.TmdbDiscover;
+import info.movito.themoviedbapi.TmdbMovies;
+import info.movito.themoviedbapi.TmdbApi;
+import info.movito.themoviedbapi.TmdbSearch;
+import info.movito.themoviedbapi.model.Discover;
+import info.movito.themoviedbapi.model.MovieDb;
+import info.movito.themoviedbapi.model.Collection;
+import info.movito.themoviedbapi.model.core.MovieResultsPage;
+import info.movito.themoviedbapi.model.core.ResultsPage;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -16,7 +26,7 @@ public class MovieDataFetch {
 
     public static void main (String[] args) throws Exception {
 
-        fetchMovieData();
+//        fetchMovieData();
         convertToObj(fetchMovieData());
     }
 
@@ -36,34 +46,23 @@ public class MovieDataFetch {
 
     public static void convertToObj(String fetchResults) throws ParseException {
 
-        Object obj = new JSONParser().parse(fetchResults);
-
-        JSONObject jo = (JSONObject) obj;
-
-
-        //with this i can add multiple fetches to one array list to iterate through
-        ArrayList <Object> ftest = new ArrayList<>();
-        ftest.add(jo.get("results"));
-
-        System.out.println(jo.get("results").getClass());
-        //getting in array
-//        JSONArray ja = (JSONArray) jo.get("results");
-//        Iterator itr2 = ja.iterator();
-//        Map address = ((Map)jo.get("results"));
-//        Iterator<Map.Entry> itr1 = address.entrySet().iterator();
-//
-//        while (itr2.hasNext())
-//        {
-//            itr1 = ((Map) itr2.next()).entrySet().iterator();
-//            while (itr1.hasNext()) {
-//                Map.Entry pair = itr1.next();
-//                System.out.println(pair.getKey() + " : " + pair.getValue());
-//            }
-//        }
-
-        System.out.println(ftest.get(0));
+        TmdbMovies movies = new TmdbApi("356630208dd743ca0f8ab6dcc24b36c6").getMovies();
+        MovieDb movie = movies.getMovie(5353, "en");
+        MovieResultsPage movie2 = movies.getSimilarMovies(5353, "en",1);
+        List<MovieDb> movieList = movie2.getResults();
+        MovieDb movieAntz = movieList.get(0);
 
 
 
+
+
+
+
+
+        System.out.println(movie);
+        System.out.println(movie2);
+        System.out.println(movieList);
+        System.out.println(movieList.size());
+        System.out.println(movieAntz);
     }
 }
