@@ -1,7 +1,8 @@
 
 public  class Main {
     public static void main (String[] args) {
-
+        Genre action = new Genre();
+        action.fetchActionMovies();
     }
 
     public static void popularMovies(){
