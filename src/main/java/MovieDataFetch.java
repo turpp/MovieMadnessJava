@@ -1,22 +1,17 @@
-import com.google.gson.Gson;
+
 import info.movito.themoviedbapi.TmdbDiscover;
 import info.movito.themoviedbapi.TmdbMovies;
 import info.movito.themoviedbapi.TmdbApi;
-import info.movito.themoviedbapi.TmdbSearch;
+
 import info.movito.themoviedbapi.model.Discover;
 import info.movito.themoviedbapi.model.MovieDb;
-import info.movito.themoviedbapi.model.Collection;
+
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
-import info.movito.themoviedbapi.model.core.ResultsPage;
-import org.json.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
+
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.*;
@@ -27,7 +22,7 @@ public class MovieDataFetch {
     public static void main (String[] args) throws Exception {
 
 //        fetchMovieData();
-        convertToObj(fetchMovieData());
+        convertToObj("hi");
     }
 
     public static String fetchMovieData () throws Exception {
@@ -44,7 +39,7 @@ public class MovieDataFetch {
 
     HashMap<String, String> movieObj = new HashMap<String, String>();
 
-    public static void convertToObj(String fetchResults) throws ParseException {
+    public static void convertToObj(String fetchResults) {
 
 
 //        TmdbMovies movies = new TmdbApi("356630208dd743ca0f8ab6dcc24b36c6").getMovies();
