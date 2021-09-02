@@ -31,7 +31,7 @@ public class Genre extends API {
 //    }
 
     public void fetchActionMovies(){
-//setup for api calls
+        //setup for api calls
         TmdbGenre action = new TmdbApi(API_KEY).getGenre();
         TmdbMovies getMovieDetail = new TmdbApi(API_KEY).getMovies();
         //loop till I have 50 movies with action as the main genre or look through 10 pages of results approximately 200 movies
@@ -60,6 +60,35 @@ public class Genre extends API {
             }
         }
 //        System.out.println(actionMovies.size());
+    }
+
+    public void fetchAdventureMovies(){
+        //setup for api calls
+        TmdbGenre adventure = new TmdbApi(API_KEY).getGenre();
+        TmdbMovies getMovieDetail = new TmdbApi(API_KEY).getMovies();
+        //loop till I have 50 movies with adventure as the main genre or look through 10 pages of results approximately 200 movies
+        for(int i = 1; i <=10 ; i++){
+            MovieResultsPage adventureMoviesList = adventure.getGenreMovies(12,"en", i, true);
+            List<MovieDb> tempList = adventureMoviesList.getResults();
+            //loops through each result list and checks to see if action is main genre type
+            //not sure if I am going to keep it this way. its a lot of api requests.
+            //have to do it this way since getGenreMovies returns any movie that has action in the genres section but does not give you a list of the genres. So we have to make a second detailed request for each movie to get the list of genres to check its main genre.
+            for(MovieDb movie: tempList){
+                MovieDb movieDetail = getMovieDetail.getMovie(movie.getId(), "en");
+                if(movieDetail.getGenres().get(0).getName().equalsIgnoreCase("Adventure")){
+                    adventureMovies.add(movieDetail);
+                }
+                //stops loop once there are 50  movies
+                if(adventureMovies.size() > 49){
+                    break;
+                }
+            }
+            //double check to make sure we do not keep looping past 50 movies
+            if(adventureMovies.size() > 49){
+                break;
+            }
+        }
+//        System.out.println(adventureMovies.size());
     }
 
 
