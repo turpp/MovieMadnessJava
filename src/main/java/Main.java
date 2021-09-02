@@ -2,7 +2,7 @@
 public  class Main {
     public static void main (String[] args) {
         Genre action = new Genre();
-        action.fetchAdventureMovies();
+        action.fetchFamilyMovies();
     }
 
     public static void popularMovies(){
