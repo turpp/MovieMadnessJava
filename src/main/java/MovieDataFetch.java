@@ -46,11 +46,31 @@ public class MovieDataFetch {
 
     public static void convertToObj(String fetchResults) throws ParseException {
 
+
+//        TmdbMovies movies = new TmdbApi("356630208dd743ca0f8ab6dcc24b36c6").getMovies();
+//        MovieDb movie = movies.getMovie(5353, "en");
+//        MovieResultsPage movie2 = movies.getSimilarMovies(5353, "en",1);
+//        List<MovieDb> movieList = movie2.getResults();
+//        MovieDb movieAntz = movieList.get(0);
+
+
+        TmdbDiscover discoverMovies = new TmdbApi("356630208dd743ca0f8ab6dcc24b36c6").getDiscover();
+        Discover discoverGenres = new Discover();
+        discoverGenres.withGenres("28");
+        System.out.println(discoverGenres.getParams());
+        MovieResultsPage listOfMovies = discoverMovies.getDiscover(discoverGenres);
+
+
+
+        List<MovieDb> actionGenre = listOfMovies.getResults();
+        MovieDb firstActionMovie = actionGenre.get(0);
+
+        System.out.println(firstActionMovie.getId());
+        System.out.println(firstActionMovie.getGenres());
+
         TmdbMovies movies = new TmdbApi("356630208dd743ca0f8ab6dcc24b36c6").getMovies();
-        MovieDb movie = movies.getMovie(5353, "en");
-        MovieResultsPage movie2 = movies.getSimilarMovies(5353, "en",1);
-        List<MovieDb> movieList = movie2.getResults();
-        MovieDb movieAntz = movieList.get(0);
+        MovieDb movie = movies.getMovie(436969, "en");
+        System.out.println(movie.getGenres().get(0).getId());
 
 
 
@@ -59,10 +79,13 @@ public class MovieDataFetch {
 
 
 
-        System.out.println(movie);
-        System.out.println(movie2);
-        System.out.println(movieList);
-        System.out.println(movieList.size());
-        System.out.println(movieAntz);
+
+
+
+//        System.out.println(movie);
+//        System.out.println(movie2);
+//        System.out.println(movieList);
+//        System.out.println(movieList.size());
+//        System.out.println(movieAntz);
     }
 }
