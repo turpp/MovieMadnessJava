@@ -10,21 +10,33 @@ import java.util.List;
 public class RankedPopularity extends API {
 
     public RankedPopularity(){
-
     }
 
     public void fetchMostPopularMovies () {
+        //List of 200 movies sorted my popularity descending
         List<MovieDb> popularList = new ArrayList<>();
-        //
+
+        //adds api to request
         TmdbDiscover discoverMovies = new TmdbApi(API_KEY).getDiscover();
+        //create discover object and add params for api request
         Discover discoverPopular = new Discover();
-        discoverPopular.page(1);
+//        discoverPopular.page(1);
         discoverPopular.sortBy("popularity.desc");
         discoverPopular.language("en");
         discoverPopular.includeAdult(false);
-        MovieResultsPage popularMovies = discoverMovies.getDiscover(discoverPopular);
-        List<MovieDb> tempList = popularMovies.getResults();
-        System.out.println(tempList);
+        //sends request to api and gets results and makes an ArrayList of results
+
+//        make a while loop to get 200 movies from search
+        int n = 1;
+        while(n < 11) {
+            discoverPopular.page(n);
+            MovieResultsPage popularMovies = discoverMovies.getDiscover(discoverPopular);
+            List<MovieDb> tempList = popularMovies.getResults();
+            for(MovieDb movie: tempList){
+                popularList.add(movie);
+            }
+            n++;
+        }
 
     }
 
