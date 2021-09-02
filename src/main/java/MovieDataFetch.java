@@ -17,12 +17,12 @@ import java.net.URLConnection;
 import java.util.*;
 
 
-public class MovieDataFetch {
+public class MovieDataFetch extends API {
 
     public static void main (String[] args) throws Exception {
 
 //        fetchMovieData();
-        convertToObj("hi");
+//        convertToObj("hi");
     }
 
     public static String fetchMovieData () throws Exception {
@@ -39,33 +39,33 @@ public class MovieDataFetch {
 
     HashMap<String, String> movieObj = new HashMap<String, String>();
 
-    public static void convertToObj(String fetchResults) {
+    public void convertToObj(String fetchResults) {
 
 
-//        TmdbMovies movies = new TmdbApi("356630208dd743ca0f8ab6dcc24b36c6").getMovies();
+//        TmdbMovies movies = new TmdbApi(API_KEY).getMovies();
 //        MovieDb movie = movies.getMovie(5353, "en");
 //        MovieResultsPage movie2 = movies.getSimilarMovies(5353, "en",1);
 //        List<MovieDb> movieList = movie2.getResults();
 //        MovieDb movieAntz = movieList.get(0);
 
 
-        TmdbDiscover discoverMovies = new TmdbApi("356630208dd743ca0f8ab6dcc24b36c6").getDiscover();
+        TmdbDiscover discoverMovies = new TmdbApi(API_KEY).getDiscover();
         Discover discoverGenres = new Discover();
         discoverGenres.withGenres("28");
-        System.out.println(discoverGenres.getParams());
+//        System.out.println(discoverGenres.getParams());
         MovieResultsPage listOfMovies = discoverMovies.getDiscover(discoverGenres);
-
+//        System.out.println(listOfMovies);
 
 
         List<MovieDb> actionGenre = listOfMovies.getResults();
         MovieDb firstActionMovie = actionGenre.get(0);
 
-        System.out.println(firstActionMovie.getId());
-        System.out.println(firstActionMovie.getGenres());
+//        System.out.println(firstActionMovie.getId());
+//        System.out.println(firstActionMovie.getGenres());
 
-        TmdbMovies movies = new TmdbApi("356630208dd743ca0f8ab6dcc24b36c6").getMovies();
+        TmdbMovies movies = new TmdbApi("API_KEY").getMovies();
         MovieDb movie = movies.getMovie(436969, "en");
-        System.out.println(movie.getGenres().get(0).getId());
+//        System.out.println(movie.getGenres().get(0).getId());
 
 
 
