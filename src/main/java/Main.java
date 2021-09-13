@@ -131,9 +131,16 @@ public  class Main extends API {
         Scanner afterDetail = new Scanner(System.in);
         int userInput = afterDetail.nextInt();
 
-        if(userInput == 2){
-            mainMenu(popularMovies);
+        switch (userInput){
+            case 1:
+                displayPopularMovies(popularMovies.popularMovieList, popularMovies);
+            case 2:
+                mainMenu(popularMovies);
+            case 00:
+                break;
         }
+
+
     }
 
 
