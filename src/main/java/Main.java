@@ -1,26 +1,159 @@
+import info.movito.themoviedbapi.TmdbApi;
+import info.movito.themoviedbapi.TmdbMovies;
 import info.movito.themoviedbapi.model.MovieDb;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public  class Main {
+public  class Main extends API {
+    public static RankedPopularity popularMovies = new RankedPopularity();
     public static void main (String[] args) {
-        Genre action = new Genre();
-        action.fetchFamilyMovies();
+//        RankedPopularity popularMovies = new RankedPopularity();
+
+        System.out.println("----------------------");
+        System.out.println("Welcome to Movie Madness!");
+        System.out.println("----------------------");
+        System.out.println("Instructions: To progress through the application, please type the number for your selection and press enter. If at anytime you wish to close the program, type 00 and press enter.");
+        System.out.println("");
+
+        mainMenu(popularMovies);
+
+//        while(true){
+//            Scanner scan = new Scanner(System.in);
+//            System.out.println("Selection:");
+//            int userInput = scan.nextInt();
+//            switch (userInput){
+//                case 1:
+//                    popularMovies(popularMovies);
+//                    displayPopularMovies(popularMovies.popularMovieList);
+//
+//
+//
+//            }
+//            if(userInput == 00){
+//                break;
+//            }
+//
+//        }
+
     }
 
-    public static void popularMovies(){
-        RankedPopularity popularMovies = new RankedPopularity();
-        popularMovies.fetchMostPopularMovies();
+
+  public static void mainMenu(RankedPopularity popularMovies){
+      System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+      System.out.println("How would you like to view the movies?");
+      System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+      System.out.println("");
+      System.out.println("1. Ranked by Popularity");
+      System.out.println("2. Grouped by Genre");
+      System.out.println("3. Movies by Rating");
+      System.out.println("`````````````````````````````````````````````````````````````");
+
+      Scanner scan = new Scanner(System.in);
+      System.out.println("Selection =>  ");
+      int userInput = scan.nextInt();
+      switch (userInput){
+          case 1:
+              getPopularMovies(popularMovies);
+              displayPopularMovies(popularMovies.popularMovieList, popularMovies);
+          case 00:
+              break;
+
+
+      }
+
+
+  }
+
+
+
+
+
+
+
+    public static void getPopularMovies(RankedPopularity popularMovies){
+        if(popularMovies.popularMovieList.size() == 0) {
+            popularMovies.fetchMostPopularMovies();
+        }
     }
+
+    public static void displayPopularMovies(List<MovieDb> popularMovieList, RankedPopularity popularMovies){
+        int n = 1;
+        for(MovieDb movie: popularMovieList){
+            System.out.println("____________________________________________________________");
+            System.out.println(n + " " + movie.getTitle());
+            System.out.println("````````````````````````````````````````````````````````````");
+            n++;
+        }
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Section => ");
+        int userSelection = scan.nextInt();
+        if (userSelection == 0){
+            mainMenu(popularMovies);
+        }
+
+        if(userSelection >=1 && userSelection <= 200){
+            movieDetails(popularMovieList.get((userSelection - 1)));
+
+        } else {
+            System.out.println("Invalid input. Please select movie by index or enter 00 to exit the program.");
+            scan.nextInt();
+            System.out.println(scan);
+
+
+        }
+    }
+
+
+
+
+
+
+    public static void movieDetails (MovieDb movie){
+        TmdbMovies getMovieDetails = new TmdbApi(API_KEY).getMovies();
+        MovieDb movieDetail = getMovieDetails.getMovie(movie.getId(), "en");
+
+        System.out.println("============================================================");
+        System.out.println("Title: " + movieDetail.getTitle());
+        System.out.println("Genre: " + movieDetail.getGenres().get(0).getName() + " " + movieDetail.getGenres().get(1).getName());
+        System.out.println("Vote Average: " + movieDetail.getVoteAverage());
+        System.out.println("Total Votes: " + movieDetail.getVoteCount());
+        System.out.println("Overview: ");
+        System.out.println(movieDetail.getOverview());
+        System.out.println("");
+        System.out.println("____________________________");
+        System.out.println(" 1. Back to Movie Selection");
+        System.out.println(" 2. Back to Main Menu");
+        System.out.println(" 00. Exit program");
+
+        Scanner afterDetail = new Scanner(System.in);
+        int userInput = afterDetail.nextInt();
+
+        if(userInput == 2){
+            mainMenu(popularMovies);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public static void RankedMovies(){
         RankedRating rankedMovies = new RankedRating();
         rankedMovies.fetchRankedMovies();
     }
 
-    public static List<MovieDb> moviesByGenre(String type){
-        Genre genreMovies = new Genre();
+    public static List<MovieDb> moviesByGenre(Genre genreMovies, String type){
+
         List<MovieDb> selectedGenre = new ArrayList<>();
 
          switch (type) {
