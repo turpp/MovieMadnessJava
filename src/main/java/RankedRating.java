@@ -12,9 +12,14 @@ public class RankedRating extends API {
     public RankedRating(){
 
     }
+    public static List<MovieDb> rankedList = new ArrayList<>();
+
+    public List<MovieDb> getRankedList(){
+        return rankedList;
+    }
 
     public void fetchRankedMovies(){
-        List<MovieDb> RankedList = new ArrayList<>();
+
 
         //adds api to request
         TmdbDiscover discoverRankedMovies = new TmdbApi(API_KEY).getDiscover();
@@ -33,7 +38,7 @@ public class RankedRating extends API {
             MovieResultsPage RankedMovies = discoverRankedMovies.getDiscover(discoverRanked);
             List<MovieDb> tempList = RankedMovies.getResults();
             for(MovieDb movie: tempList){
-                RankedList.add(movie);
+                rankedList.add(movie);
             }
             n++;
         }

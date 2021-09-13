@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public  class Main extends API {
     public static RankedPopularity popularMovies = new RankedPopularity();
+    public static RankedRating rankedMovies = new RankedRating();
     public static void main (String[] args) {
 //        RankedPopularity popularMovies = new RankedPopularity();
 
@@ -57,6 +58,12 @@ public  class Main extends API {
           case 1:
               getPopularMovies(popularMovies);
               displayPopularMovies(popularMovies.popularMovieList, popularMovies);
+          case 2:
+              getRatingMovies();
+              displayRatingMovies(rankedMovies.getRankedList());
+
+
+
           case 00:
               break;
 
@@ -154,10 +161,39 @@ public  class Main extends API {
 
 
 
-    public static void RankedMovies(){
-        RankedRating rankedMovies = new RankedRating();
-        rankedMovies.fetchRankedMovies();
+    public static void getRatingMovies(){
+        if(rankedMovies.getRankedList().size() == 0) {
+            rankedMovies.fetchRankedMovies();
+        }
     }
+
+    public static void displayRatingMovies(List<MovieDb> ratingList) {
+        int n = 1;
+        for (MovieDb movie : ratingList) {
+            System.out.println("____________________________________________________________");
+            System.out.println(n + " " + movie.getTitle());
+            System.out.println("````````````````````````````````````````````````````````````");
+            n++;
+        }
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Section => ");
+        int userSelection = scan.nextInt();
+
+        if (userSelection >= 1 && userSelection <= 200) {
+            movieDetails(ratingList.get((userSelection - 1)));
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public static List<MovieDb> moviesByGenre(Genre genreMovies, String type){
 
