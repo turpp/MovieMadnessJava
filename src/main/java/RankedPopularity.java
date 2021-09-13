@@ -10,7 +10,10 @@ import java.util.List;
 public class RankedPopularity extends API {
 
     public RankedPopularity(){
+
     }
+
+    public List<MovieDb> popularMovieList = new ArrayList<>();
 
     public void fetchMostPopularMovies () {
         //List of 200 movies sorted my popularity descending
@@ -37,6 +40,8 @@ public class RankedPopularity extends API {
             }
             n++;
         }
+
+        popularMovieList = popularList;
 
     }
 
