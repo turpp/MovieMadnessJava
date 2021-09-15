@@ -17,12 +17,12 @@ public class Genre extends API {
     List<MovieDb> actionMovies = new ArrayList<>();
     List<MovieDb> adventureMovies = new ArrayList<>();
     List<MovieDb> dramaMovies = new ArrayList<>();
-    List<MovieDb> sciFiMovies = new ArrayList<>();
+//    List<MovieDb> sciFiMovies = new ArrayList<>();
     List<MovieDb> thrillerMovies = new ArrayList<>();
     List<MovieDb> comedyMovies = new ArrayList<>();
     List<MovieDb> horrorMovies = new ArrayList<>();
     List<MovieDb> familyMovies = new ArrayList<>();
-    List<MovieDb> mysteryMovies = new ArrayList<>();
+//    List<MovieDb> mysteryMovies = new ArrayList<>();
     List<MovieDb> documentaryMovies = new ArrayList<>();
 
 //    public Genre(String name, int id){

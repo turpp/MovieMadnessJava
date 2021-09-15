@@ -41,6 +41,9 @@ public  class Main extends API {
                  RankedPopularity.displayPopularMovies();
              }
 
+          case 2:
+              //add logic to fetch genre and display genre
+
           case 3:
               if(RankedRating.rankedList.size() > 0){
                   RankedRating.displayRankedRating();
@@ -92,22 +95,6 @@ public  class Main extends API {
         System.out.println(" 2. Back to Main Menu");
         System.out.println(" 00. Exit program");
         detailMenu(section);
-
-//        Scanner afterDetail = new Scanner(System.in);
-//        int userInput = afterDetail.nextInt();
-//
-//        switch (userInput){
-//            case 1:
-//                RankedPopularity.displayPopularMovies();
-//                break;
-//            case 2:
-//                mainMenu();
-//                break;
-//            case 00:
-//                break;
-//        }
-
-
     }
 
     public static void detailMenu(String section){
