@@ -10,10 +10,6 @@ import java.util.Scanner;
 
 public class RankedPopularity extends API {
 
-    public RankedPopularity(){
-
-    }
-
     public static List<MovieDb> popularMovieList = new ArrayList<>();
 
     public static void fetchMostPopularMovies () {
@@ -73,10 +69,6 @@ public class RankedPopularity extends API {
 
         }
     }
-
-
-
-
 
 
 }
