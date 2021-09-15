@@ -42,7 +42,7 @@ public class RankedPopularity extends API {
 
     }
 
-    public static void displayPopularMovies(List<MovieDb> popularMovieList){
+    public static void displayPopularMovies(){
         int n = 1;
         for(MovieDb movie: popularMovieList){
             System.out.println("____________________________________________________________");
