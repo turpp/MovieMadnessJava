@@ -6,6 +6,7 @@ import info.movito.themoviedbapi.model.core.MovieResultsPage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class RankedPopularity extends API {
 
@@ -13,9 +14,9 @@ public class RankedPopularity extends API {
 
     }
 
-    public List<MovieDb> popularMovieList = new ArrayList<>();
+    public static List<MovieDb> popularMovieList = new ArrayList<>();
 
-    public void fetchMostPopularMovies () {
+    public static void fetchMostPopularMovies () {
         //List of 200 movies sorted my popularity descending
         List<MovieDb> popularList = new ArrayList<>();
 
@@ -43,6 +44,34 @@ public class RankedPopularity extends API {
 
         popularMovieList = popularList;
 
+    }
+
+    public static void displayPopularMovies(List<MovieDb> popularMovieList){
+        int n = 1;
+        for(MovieDb movie: popularMovieList){
+            System.out.println("____________________________________________________________");
+            System.out.println(n + " " + movie.getTitle());
+            System.out.println("````````````````````````````````````````````````````````````");
+            n++;
+        }
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Section => ");
+        int userSelection = scan.nextInt();
+        if (userSelection == 0){
+            Main.mainMenu();
+        }
+
+        if(userSelection >=1 && userSelection <= 200){
+            Main.showMovieDetails(popularMovieList.get((userSelection - 1)));
+
+        } else {
+            System.out.println("Invalid input. Please select movie by index or enter 00 to exit the program.");
+            scan.nextInt();
+            System.out.println(scan);
+
+
+        }
     }
 
 
