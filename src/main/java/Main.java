@@ -35,15 +35,19 @@ public  class Main extends API {
       switch (userInput){
           case 1:
              if(RankedPopularity.popularMovieList.size() > 0){
-                 RankedPopularity.displayPopularMovies(RankedPopularity.popularMovieList);
+                 RankedPopularity.displayPopularMovies();
              } else {
                  RankedPopularity.fetchMostPopularMovies();
-                 RankedPopularity.displayPopularMovies(RankedPopularity.popularMovieList);
+                 RankedPopularity.displayPopularMovies();
              }
 
-//          case 2:
-//              getRatingMovies();
-//              displayRatingMovies(rankedMovies.getRankedList());
+          case 3:
+              if(RankedRating.rankedList.size() > 0){
+                  RankedRating.displayRankedRating();
+              } else {
+                  RankedRating.fetchRankedMovies();
+                  RankedRating.displayRankedRating();
+              }
 
 
 
@@ -56,7 +60,7 @@ public  class Main extends API {
 
   }
 
-    public static void showMovieDetails (MovieDb movie){
+    public static void showMovieDetails (MovieDb movie, String section){
         TmdbMovies getMovieDetails = new TmdbApi(API_KEY).getMovies();
         MovieDb movieDetail = getMovieDetails.getMovie(movie.getId(), "en");
 
@@ -87,22 +91,56 @@ public  class Main extends API {
         System.out.println(" 1. Back to Movie Selection");
         System.out.println(" 2. Back to Main Menu");
         System.out.println(" 00. Exit program");
+        detailMenu(section);
 
-        Scanner afterDetail = new Scanner(System.in);
-        int userInput = afterDetail.nextInt();
+//        Scanner afterDetail = new Scanner(System.in);
+//        int userInput = afterDetail.nextInt();
+//
+//        switch (userInput){
+//            case 1:
+//                RankedPopularity.displayPopularMovies();
+//                break;
+//            case 2:
+//                mainMenu();
+//                break;
+//            case 00:
+//                break;
+//        }
 
-        switch (userInput){
-            case 1:
-                RankedPopularity.displayPopularMovies(RankedPopularity.popularMovieList);
-                break;
-            case 2:
-                mainMenu();
-                break;
-            case 00:
-                break;
+
+    }
+
+    public static void detailMenu(String section){
+        switch (section){
+            case "popular":
+                Scanner afterDetail = new Scanner(System.in);
+                int userInput = afterDetail.nextInt();
+
+                switch (userInput){
+                    case 1:
+                        RankedPopularity.displayPopularMovies();
+                        break;
+                    case 2:
+                        mainMenu();
+                        break;
+                    case 00:
+                        break;
+                }
+            case "rating":
+                Scanner afterRatingDetail = new Scanner(System.in);
+                int userRatingInput = afterRatingDetail.nextInt();
+
+                switch (userRatingInput){
+                    case 1:
+                        RankedRating.displayRankedRating();
+                        break;
+                    case 2:
+                        mainMenu();
+                        break;
+                    case 00:
+                        break;
+                }
         }
-
-
     }
 
 

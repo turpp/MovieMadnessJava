@@ -59,7 +59,7 @@ public class RankedPopularity extends API {
         }
 
         if(userSelection >=1 && userSelection <= 200){
-            Main.showMovieDetails(popularMovieList.get((userSelection - 1)));
+            Main.showMovieDetails(popularMovieList.get((userSelection - 1)),"popular");
 
         } else {
             System.out.println("Invalid input. Please select movie by index or enter 00 to exit the program.");
