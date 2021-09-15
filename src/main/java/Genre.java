@@ -14,16 +14,16 @@ public class Genre extends API {
     }
 //    public String name;
 //    public int tmdbId;
-    List<MovieDb> actionMovies = new ArrayList<>();
-    List<MovieDb> adventureMovies = new ArrayList<>();
-    List<MovieDb> dramaMovies = new ArrayList<>();
+    public static List<MovieDb> actionMovies = new ArrayList<>();
+    public static List<MovieDb> adventureMovies = new ArrayList<>();
+    public static List<MovieDb> dramaMovies = new ArrayList<>();
 //    List<MovieDb> sciFiMovies = new ArrayList<>();
-    List<MovieDb> thrillerMovies = new ArrayList<>();
-    List<MovieDb> comedyMovies = new ArrayList<>();
-    List<MovieDb> horrorMovies = new ArrayList<>();
-    List<MovieDb> familyMovies = new ArrayList<>();
+    public static List<MovieDb> thrillerMovies = new ArrayList<>();
+    public static List<MovieDb> comedyMovies = new ArrayList<>();
+    public static List<MovieDb> horrorMovies = new ArrayList<>();
+    public static List<MovieDb> familyMovies = new ArrayList<>();
 //    List<MovieDb> mysteryMovies = new ArrayList<>();
-    List<MovieDb> documentaryMovies = new ArrayList<>();
+    public static List<MovieDb> documentaryMovies = new ArrayList<>();
 
 //    public Genre(String name, int id){
 //        this.name = name;
