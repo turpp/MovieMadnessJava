@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class RankedPopularity extends API {
 
     public static List<MovieDb> popularMovieList = new ArrayList<>();
+    static Scanner scan = new Scanner(System.in);
 
     public static void fetchMostPopularMovies () {
         //List of 200 movies sorted my popularity descending
@@ -51,7 +52,7 @@ public class RankedPopularity extends API {
             n++;
         }
 
-        Scanner scan = new Scanner(System.in);
+
         System.out.println("Section => ");
         int userSelection = scan.nextInt();
         if (userSelection == 0){
