@@ -6,6 +6,7 @@ import info.movito.themoviedbapi.model.core.MovieResultsPage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NavigableMap;
 import java.util.Scanner;
 
 public class RankedPopularity extends API {
@@ -54,21 +55,7 @@ public class RankedPopularity extends API {
 
 
         System.out.println("Section => ");
-        int userSelection = scan.nextInt();
-        if (userSelection == 0){
-            Main.mainMenu();
-        }
-
-        if(userSelection >=1 && userSelection <= 200){
-            Main.showMovieDetails(popularMovieList.get((userSelection - 1)),"popular");
-
-        } else {
-            System.out.println("Invalid input. Please select movie by index or enter 00 to exit the program.");
-            scan.nextInt();
-            System.out.println(scan);
-
-
-        }
+        Navagation.popularSelectionNav(popularMovieList);
     }
 
 

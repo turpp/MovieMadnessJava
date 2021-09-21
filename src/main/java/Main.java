@@ -69,11 +69,13 @@ public  class Main extends API {
         System.out.println("Overview: ");
         System.out.println(movieDetail.getOverview());
         System.out.println("");
-        System.out.println("____________________________");
-        System.out.println(" 1. Back to Movie Selection");
-        System.out.println(" 2. Back to Main Menu");
-        System.out.println(" 00. Exit program");
-        detailMenu(section);
+        //put in movie detail menu here
+        Navagation.movieDetailMenu(section);
+//        System.out.println("____________________________");
+//        System.out.println(" 1. Back to Movie Selection");
+//        System.out.println(" 2. Back to Main Menu");
+//        System.out.println(" 00. Exit program");
+//        detailMenu(section);
     }
 
     public static void detailMenu(String section){
