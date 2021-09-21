@@ -9,28 +9,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Genre extends API {
-
-    public Genre(){
-
-    }
-//    public String name;
-//    public int tmdbId;
     public static List<MovieDb> actionMovies = new ArrayList<>();
     public static List<MovieDb> adventureMovies = new ArrayList<>();
     public static List<MovieDb> dramaMovies = new ArrayList<>();
-//    List<MovieDb> sciFiMovies = new ArrayList<>();
     public static List<MovieDb> thrillerMovies = new ArrayList<>();
     public static List<MovieDb> comedyMovies = new ArrayList<>();
     public static List<MovieDb> horrorMovies = new ArrayList<>();
     public static List<MovieDb> familyMovies = new ArrayList<>();
-//    List<MovieDb> mysteryMovies = new ArrayList<>();
     public static List<MovieDb> documentaryMovies = new ArrayList<>();
-
-//    public Genre(String name, int id){
-//        this.name = name;
-//        tmdbId = id;
-//    }
-
     public static void displayGenres(){
         System.out.println("____________________________________________________________");
         System.out.println("1. Action");
