@@ -10,12 +10,12 @@ public class Navagation {
         int userInput = scan.nextInt();
         switch (userInput){
             case 1:
-                if(RankedPopularity.popularMovieList.size() > 0){
-                    RankedPopularity.displayPopularMovies();
-                } else {
+                if(RankedPopularity.popularMovieList.size() == 0){
                     RankedPopularity.fetchMostPopularMovies();
-                    RankedPopularity.displayPopularMovies();
                 }
+                RankedPopularity.displayPopularMovies();
+                break;
+
             case 2:
                 //add logic to fetch genre and display genre
                 Genre.displayGenres();
@@ -24,6 +24,7 @@ public class Navagation {
                     RankedRating.fetchRankedMovies();
                 }
                     RankedRating.displayRankedRating();
+                break;
 
             case 00:
                 break;
