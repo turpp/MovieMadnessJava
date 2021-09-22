@@ -15,9 +15,7 @@ public class Navagation {
                 }
                 RankedPopularity.displayPopularMovies();
                 break;
-
             case 2:
-                //add logic to fetch genre and display genre
                 Genre.displayGenres();
             case 3:
                 if(RankedRating.rankedList.size() == 0){
@@ -25,41 +23,59 @@ public class Navagation {
                 }
                     RankedRating.displayRankedRating();
                 break;
-
             case 00:
+                System.out.println("Thanks for using Movie Madness!! : )");
+                scan.close();
                 break;
+            default:
+                System.out.println("Invalid entry. Please enter the number next to the selection you want.");
+                System.out.println("`````````````````````````````````````````````````````````````");
+                System.out.println("Selection => ");
+                mainMenuNav();
         }
     }
 
-    public static void popularSelectionNav(List<MovieDb> popularMovieList, String section){
+    public static void movieSelectionNav(List<MovieDb> popularMovieList, String section){
         int userSelection = scan.nextInt();
-        if (userSelection == 0){
-            Main.mainMenu();
-        }
 
         if(userSelection >=1 && userSelection <= 200){
             Main.showMovieDetails(popularMovieList.get((userSelection - 1)),section);
-
-        } else {
-            System.out.println("Invalid input. Please select movie by index or enter 00 to exit the program.");
-            scan.nextInt();
-            System.out.println(scan);
+        } else if(userSelection == 1111) {
+            Main.mainMenu();
+        } else if(userSelection == 00){
+            System.out.println("Thanks for using Movie Madness!! : )");
+            scan.close();
         }
+        else {
+            System.out.println("Invalid entry. Please enter the number next to the selection you want.");
+            System.out.println("`````````````````````````````````````````````````````````````");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("- Enter number next to movie to see more detail.");
+            System.out.println("- Enter 1111 to go back to the main menu.");
+            System.out.println("- Enter 00 to exit the program.");
+            System.out.println("============================================================");
+            System.out.println("Section => ");
+            Navagation.movieSelectionNav(popularMovieList, "Popular");
+        }
+
     }
 
     public static void genreMovieNav(List<MovieDb> selectedGenre){
         int userSelection = scan.nextInt();
-        if (userSelection == 0){
-            Main.mainMenu();
-        }
 
         if(userSelection >=1 && userSelection <= 60){
             Main.showMovieDetails(selectedGenre.get((userSelection - 1)),"Genre");
-
-        } else {
-            System.out.println("Invalid input. Please select movie by index or enter 00 to exit the program.");
-            scan.nextInt();
-            System.out.println(scan);
+        } else if(userSelection == 1111){
+            Main.mainMenu();
+        } else if(userSelection == 00){
+            System.out.println("Thanks for using Movie Madness!! : )");
+            scan.close();
+        }
+        else {
+            System.out.println("Invalid entry. Please enter the number next to the selection you want.");
+            System.out.println("```````````````````````````````````````````````````````````````````````");
+            System.out.println("Selection => ");
+            genreMovieNav(selectedGenre);
         }
     }
 
@@ -67,7 +83,7 @@ public class Navagation {
 
         System.out.println("____________________________");
         System.out.println(" 1. Back to " + section + " Selection");
-        System.out.println(" 2. Back to Main Menu");
+        System.out.println(" 1111. Back to Main Menu");
         System.out.println(" 00. Exit program");
 
         int userInput = scan.nextInt();
@@ -84,7 +100,7 @@ public class Navagation {
                     break;
             }
         }
-        if(userInput == 2){
+        if(userInput == 1111){
             Main.mainMenu();
         }
 
@@ -123,6 +139,18 @@ public class Navagation {
             case 8:
                 Genre.displayGenreMovies(Genre.getUserSelectedGenre(99));
                 break;
+            case 1111:
+                Main.mainMenu();
+                break;
+            case 00:
+                System.out.println("Thanks for using Movie Madness!! : )");
+                scan.close();
+                break;
+            default:
+                System.out.println("Invalid entry. Please enter the number next to the selection you want.");
+                System.out.println("```````````````````````````````````````````````````````````````````````");
+                System.out.println("Selection => ");
+                genreSelectorNav();
         }
     }
 

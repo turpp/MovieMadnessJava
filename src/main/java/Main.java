@@ -10,10 +10,13 @@ public  class Main extends API {
 
     public static void main (String[] args) {
 
-        System.out.println("----------------------");
+        System.out.println("--------------------------");
         System.out.println("Welcome to Movie Madness!");
-        System.out.println("----------------------");
-        System.out.println("Instructions: To progress through the application, please type the number for your selection and press enter. If at anytime you wish to close the program, type 00 and press enter.");
+        System.out.println("--------------------------");
+        System.out.println("Instructions: ");
+        System.out.println("=> To progress through the application, please type the number for your selection and press enter.");
+        System.out.println("=> If at anytime you wish to close the program, type 00 and press enter.");
+        System.out.println("=> If at anytime you wish to go back to the main menu, type 1111 and press enter.");
         System.out.println("");
 
         mainMenu();

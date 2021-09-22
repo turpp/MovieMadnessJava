@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class RankedPopularity extends API {
 
     public static List<MovieDb> popularMovieList = new ArrayList<>();
-    static Scanner scan = new Scanner(System.in);
+
 
     public static void fetchMostPopularMovies () {
         //List of 200 movies sorted my popularity descending
@@ -53,9 +53,13 @@ public class RankedPopularity extends API {
             n++;
         }
 
-
-        System.out.println("Section => ");
-        Navagation.popularSelectionNav(popularMovieList, "Popular");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("- Enter number next to movie to see more detail.");
+        System.out.println("- Enter 1111 to go back to the main menu.");
+        System.out.println("- Enter 00 to exit the program.");
+        System.out.println("============================================================");
+        System.out.println("Selection => ");
+        Navagation.movieSelectionNav(popularMovieList, "Popular");
     }
 
 
