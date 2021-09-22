@@ -55,7 +55,7 @@ public class RankedPopularity extends API {
 
 
         System.out.println("Section => ");
-        Navagation.popularSelectionNav(popularMovieList);
+        Navagation.popularSelectionNav(popularMovieList, "Popular");
     }
 
 

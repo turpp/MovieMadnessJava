@@ -17,6 +17,7 @@ public class Genre extends API {
     public static List<MovieDb> horrorMovies = new ArrayList<>();
     public static List<MovieDb> familyMovies = new ArrayList<>();
     public static List<MovieDb> documentaryMovies = new ArrayList<>();
+
     public static void displayGenres(){
         System.out.println("____________________________________________________________");
         System.out.println("1. Action");
@@ -43,36 +44,9 @@ public class Genre extends API {
         System.out.println("8. Documentary");
         System.out.println("------------------------------------------------------------");
 
-        Scanner genreSelection = new Scanner(System.in);
-        System.out.println("Selection =>  ");
-        int userInput = genreSelection.nextInt();
-        switch (userInput){
-            case 1:
-                displayGenreMovies(getUserSelectedGenre(28));
-                break;
-            case 2:
-                displayGenreMovies(getUserSelectedGenre(12));
-                break;
-            case 3:
-                displayGenreMovies(getUserSelectedGenre(18));
-                break;
-            case 4:
-                displayGenreMovies(getUserSelectedGenre(53));
-                break;
-            case 5:
-                displayGenreMovies(getUserSelectedGenre(35));
-                break;
-            case 6:
-                displayGenreMovies(getUserSelectedGenre(27));
-                break;
-            case 7:
-                displayGenreMovies(getUserSelectedGenre(10751));
-                break;
-            case 8:
-                displayGenreMovies(getUserSelectedGenre(99));
-                break;
-        }
 
+        System.out.println("Selection =>  ");
+        Navagation.genreSelectorNav();
     }
 
     public static void displayGenreMovies(List<MovieDb> selectedGenre){
@@ -84,23 +58,9 @@ public class Genre extends API {
             n++;
         }
 
-        Scanner scan = new Scanner(System.in);
+
         System.out.println("Section => ");
-        int userSelection = scan.nextInt();
-        if (userSelection == 0){
-            Main.mainMenu();
-        }
-
-        if(userSelection >=1 && userSelection <= 60){
-            Main.showMovieDetails(selectedGenre.get((userSelection - 1)),"genre");
-
-        } else {
-            System.out.println("Invalid input. Please select movie by index or enter 00 to exit the program.");
-            scan.nextInt();
-            System.out.println(scan);
-
-
-        }
+        Navagation.genreMovieNav(selectedGenre);
     }
 
     public static List<MovieDb> getUserSelectedGenre(int genreId){

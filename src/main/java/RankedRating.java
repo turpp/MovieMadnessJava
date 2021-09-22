@@ -43,24 +43,9 @@ public class RankedRating extends API {
             System.out.println("````````````````````````````````````````````````````````````");
             n++;
         }
-
-        Scanner scan = new Scanner(System.in);
         System.out.println("Section => ");
-        int userSelection = scan.nextInt();
-        if (userSelection == 0){
-            Main.mainMenu();
-        }
+        Navagation.popularSelectionNav(rankedList, "Rating");
 
-        if(userSelection >=1 && userSelection <= 200){
-            Main.showMovieDetails(rankedList.get((userSelection - 1)),"rating");
-
-        } else {
-            System.out.println("Invalid input. Please select movie by index or enter 00 to exit the program.");
-            scan.nextInt();
-            System.out.println(scan);
-
-
-        }
     }
 
 
