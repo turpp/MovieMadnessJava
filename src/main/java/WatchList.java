@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 
 public class WatchList {
-    ArrayList<MovieDb> watchList = new ArrayList<>();
+    //working on if i need a constructor and have a watchlist object or use it as a class and just add to it.
+    private static ArrayList<MovieDb> watchList = new ArrayList<>();
+
 
     public void addMovie(MovieDb movie){
         watchList.add(movie);
@@ -14,5 +16,11 @@ public class WatchList {
         return watchList;
     }
 
+    public static void displayWatchList(){
+        if(watchList.size() == 0){
+            System.out.println("List is empty. View movies and add them to your list.");
+        }
+        System.out.println();
+    }
 
 }

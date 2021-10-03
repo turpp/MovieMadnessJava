@@ -31,6 +31,7 @@ public  class Main extends API {
       System.out.println("1. Ranked by Popularity");
       System.out.println("2. Grouped by Genre");
       System.out.println("3. Movies by Rating");
+      System.out.println("4. View Watch List");
       System.out.println("`````````````````````````````````````````````````````````````");
 
 
