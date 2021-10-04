@@ -81,10 +81,11 @@ public class Navagation {
         }
     }
 
-    public static void movieDetailMenu(String section){
+    public static void movieDetailMenu(String section, MovieDb movie){
 
         System.out.println("____________________________");
         System.out.println(" 1. Back to " + section + " Selection");
+        System.out.println(" 2. Add to watch List");
         System.out.println(" 1111. Back to Main Menu");
         System.out.println(" 00. Exit program");
 
@@ -109,6 +110,11 @@ public class Navagation {
         if(userInput == 00){
             System.out.println("Thanks for using Movie Madness!! : )");
             scan.close();
+        }
+
+        if(userInput == 2){
+            WatchList.addMovie(movie);
+            Main.mainMenu();
         }
 
 

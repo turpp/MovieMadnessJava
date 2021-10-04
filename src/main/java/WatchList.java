@@ -8,7 +8,7 @@ public class WatchList {
     private static ArrayList<MovieDb> watchList = new ArrayList<>();
 
 
-    public void addMovie(MovieDb movie){
+    public static void addMovie(MovieDb movie){
         watchList.add(movie);
     }
 
@@ -17,11 +17,13 @@ public class WatchList {
     }
 
     public static void displayWatchList(){
+        int i = 1;
         if(watchList.size() == 0){
             System.out.println("List is empty. View movies and add them to your list.");
         } else {
             for (MovieDb movie: watchList) {
-                System.out.println(movie);
+                System.out.println(i+"." + " " + movie.getTitle());
+                i++;
             }
         }
         Navagation.watchListNav();
