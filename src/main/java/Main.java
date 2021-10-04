@@ -40,7 +40,7 @@ public  class Main extends API {
       Navagation.mainMenuNav();
   }
 
-    public static void showMovieDetails (MovieDb movie, String section){
+    public static void showMovieDetails (MovieDb movie, String section, int index){
         TmdbMovies getMovieDetails = new TmdbApi(API_KEY).getMovies();
         MovieDb movieDetail = getMovieDetails.getMovie(movie.getId(), "en");
 
@@ -74,7 +74,7 @@ public  class Main extends API {
         System.out.println(movieDetail.getOverview());
         System.out.println("");
         //put in movie detail menu here
-        Navagation.movieDetailMenu(section, movieDetail);
+        Navagation.movieDetailMenu(section, movieDetail, index);
 //        System.out.println("____________________________");
 //        System.out.println(" 1. Back to Movie Selection");
 //        System.out.println(" 2. Back to Main Menu");

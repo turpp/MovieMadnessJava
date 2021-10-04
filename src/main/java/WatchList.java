@@ -16,6 +16,10 @@ public class WatchList {
         return watchList;
     }
 
+    public static void removeMovie(int index){
+        watchList.remove(index);
+    }
+
     public static void displayWatchList(){
         int i = 1;
         if(watchList.size() == 0){

@@ -43,7 +43,7 @@ public class Navagation {
         int userSelection = scan.nextInt();
 
         if(userSelection >=1 && userSelection <= 200){
-            Main.showMovieDetails(popularMovieList.get((userSelection - 1)),section);
+            Main.showMovieDetails(popularMovieList.get((userSelection - 1)),section, userSelection);
         } else if(userSelection == 1111) {
             Main.mainMenu();
         } else if(userSelection == 00){
@@ -68,7 +68,7 @@ public class Navagation {
         int userSelection = scan.nextInt();
 
         if(userSelection >=1 && userSelection <= 60){
-            Main.showMovieDetails(selectedGenre.get((userSelection - 1)),"Genre");
+            Main.showMovieDetails(selectedGenre.get((userSelection - 1)),"Genre", userSelection);
         } else if(userSelection == 1111){
             Main.mainMenu();
         } else if(userSelection == 00){
@@ -83,13 +83,22 @@ public class Navagation {
         }
     }
 
-    public static void movieDetailMenu(String section, MovieDb movie){
+    public static void movieDetailMenu(String section, MovieDb movie, int index){
 
-        System.out.println("____________________________");
-        System.out.println(" 1. Back to " + section + " Selection");
-        System.out.println(" 2. Add to watch List");
-        System.out.println(" 1111. Back to Main Menu");
-        System.out.println(" 00. Exit program");
+        if(section.equals("Watch List")){
+            System.out.println("____________________________");
+            System.out.println(" 1. Back to " + section);
+            System.out.println(" 2222. Delete from Watch List");
+            System.out.println(" 1111. Back to Main Menu");
+            System.out.println(" 00. Exit program");
+
+        } else {
+            System.out.println("____________________________");
+            System.out.println(" 1. Back to " + section + " Selection");
+            System.out.println(" 2. Add to watch List");
+            System.out.println(" 1111. Back to Main Menu");
+            System.out.println(" 00. Exit program");
+        }
 
         int userInput = scan.nextInt();
         if(userInput == 1){
@@ -119,6 +128,11 @@ public class Navagation {
         if(userInput == 2){
             WatchList.addMovie(movie);
             Main.mainMenu();
+        }
+
+        if(userInput == 2222){
+            WatchList.removeMovie(index - 1);
+            WatchList.displayWatchList();
         }
 
 
@@ -172,8 +186,8 @@ public class Navagation {
         if(userInput == 0){
             Main.mainMenu();
         }
-        if(userInput > 0 &&  userInput < watchList.size()){
-            Main.showMovieDetails(watchList.get(userInput - 1), "Watch List");
+        if(userInput > 0 &&  userInput <= watchList.size()){
+            Main.showMovieDetails(watchList.get(userInput - 1), "Watch List", userInput);
         }
 
 
