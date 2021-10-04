@@ -23,6 +23,8 @@ public class Navagation {
                 }
                     RankedRating.displayRankedRating();
                 break;
+            case 4:
+                WatchList.displayWatchList();
             case 00:
                 System.out.println("Thanks for using Movie Madness!! : )");
                 scan.close();
@@ -152,6 +154,15 @@ public class Navagation {
                 System.out.println("Selection => ");
                 genreSelectorNav();
         }
+    }
+
+    public static void watchListNav(){
+        System.out.println("Enter the movie index for more detail or 0 to go back to Main Menu.");
+        int userInput = scan.nextInt();
+        if(userInput == 0){
+            Main.mainMenu();
+        }
+
     }
 
 }

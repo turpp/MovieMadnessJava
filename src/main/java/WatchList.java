@@ -19,8 +19,12 @@ public class WatchList {
     public static void displayWatchList(){
         if(watchList.size() == 0){
             System.out.println("List is empty. View movies and add them to your list.");
+        } else {
+            for (MovieDb movie: watchList) {
+                System.out.println(movie);
+            }
         }
-        System.out.println();
+        Navagation.watchListNav();
     }
 
 }
