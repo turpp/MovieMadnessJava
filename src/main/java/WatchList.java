@@ -12,7 +12,7 @@ public class WatchList {
         watchList.add(movie);
     }
 
-    public ArrayList<MovieDb> getWatchList(){
+    public static ArrayList<MovieDb> getWatchList(){
         return watchList;
     }
 
@@ -26,7 +26,7 @@ public class WatchList {
                 i++;
             }
         }
-        Navagation.watchListNav();
+        Navagation.watchListNav(watchList);
     }
 
 }

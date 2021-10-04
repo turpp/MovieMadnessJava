@@ -1,5 +1,7 @@
 import info.movito.themoviedbapi.model.MovieDb;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -101,6 +103,8 @@ public class Navagation {
                 case "Genre":
                     Genre.displayGenres();
                     break;
+                case "Watch List":
+                    WatchList.displayWatchList();
             }
         }
         if(userInput == 1111){
@@ -162,12 +166,18 @@ public class Navagation {
         }
     }
 
-    public static void watchListNav(){
+    public static void watchListNav(ArrayList<MovieDb> watchList){
         System.out.println("Enter the movie index for more detail or 0 to go back to Main Menu.");
         int userInput = scan.nextInt();
         if(userInput == 0){
             Main.mainMenu();
         }
+        if(userInput > 0 &&  userInput < watchList.size()){
+            Main.showMovieDetails(watchList.get(userInput - 1), "Watch List");
+        }
+
+
+
 
     }
 
