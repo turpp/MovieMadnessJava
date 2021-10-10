@@ -1,12 +1,9 @@
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbGenre;
-import info.movito.themoviedbapi.TmdbMovies;
 import info.movito.themoviedbapi.model.MovieDb;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Genre extends API {
     public static List<MovieDb> actionMovies = new ArrayList<>();
@@ -127,14 +124,12 @@ public class Genre extends API {
                 break;
         }
         return selectedGenre;
-
     }
 
 
     public static void fetchGenreMovies(int genreId){
         TmdbGenre genre = new TmdbApi(API_KEY).getGenre();
         List<MovieDb> genreMovieList = new ArrayList<>();
-//        get action movie list
         for(int i = 1; i < 4; i++){
             MovieResultsPage genreRequest = genre.getGenreMovies(genreId,"en", i, true);
             List<MovieDb> genreMovies = genreRequest.getResults();
@@ -169,9 +164,6 @@ public class Genre extends API {
                 documentaryMovies = genreMovieList;
                 break;
         }
-
-
-
     }
 
 

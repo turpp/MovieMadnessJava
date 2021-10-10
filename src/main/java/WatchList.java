@@ -2,11 +2,8 @@ import info.movito.themoviedbapi.model.MovieDb;
 
 import java.util.ArrayList;
 
-
 public class WatchList {
-    //working on if i need a constructor and have a watchlist object or use it as a class and just add to it.
     private static ArrayList<MovieDb> watchList = new ArrayList<>();
-
 
     public static void addMovie(MovieDb movie){
         watchList.add(movie);

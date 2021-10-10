@@ -3,16 +3,12 @@ import info.movito.themoviedbapi.TmdbDiscover;
 import info.movito.themoviedbapi.model.Discover;
 import info.movito.themoviedbapi.model.MovieDb;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NavigableMap;
-import java.util.Scanner;
 
 public class RankedPopularity extends API {
 
     public static List<MovieDb> popularMovieList = new ArrayList<>();
-
 
     public static void fetchMostPopularMovies () {
         //List of 200 movies sorted my popularity descending
@@ -39,9 +35,7 @@ public class RankedPopularity extends API {
             }
             n++;
         }
-
         popularMovieList = popularList;
-
     }
 
     public static void displayPopularMovies(){
@@ -52,7 +46,6 @@ public class RankedPopularity extends API {
             System.out.println("````````````````````````````````````````````````````````````");
             n++;
         }
-
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("- Enter number next to movie to see more detail.");
         System.out.println("- Enter 1111 to go back to the main menu.");

@@ -3,11 +3,8 @@ import info.movito.themoviedbapi.TmdbDiscover;
 import info.movito.themoviedbapi.model.Discover;
 import info.movito.themoviedbapi.model.MovieDb;
 import info.movito.themoviedbapi.model.core.MovieResultsPage;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
 public class RankedRating extends API {
 
     public static List<MovieDb> rankedList = new ArrayList<>();
@@ -32,7 +29,6 @@ public class RankedRating extends API {
             }
             n++;
         }
-
     }
 
     public static void displayRankedRating(){
@@ -50,12 +46,5 @@ public class RankedRating extends API {
         System.out.println("============================================================");
         System.out.println("Selection => ");
         Navagation.movieSelectionNav(rankedList, "Rating");
-
     }
-
-
-
-
-
-
 }

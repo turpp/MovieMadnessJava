@@ -1,6 +1,4 @@
 import info.movito.themoviedbapi.model.MovieDb;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -61,7 +59,6 @@ public class Navagation {
             System.out.println("Section => ");
             Navagation.movieSelectionNav(popularMovieList, "Popular");
         }
-
     }
 
     public static void genreMovieNav(List<MovieDb> selectedGenre){
@@ -134,8 +131,6 @@ public class Navagation {
             WatchList.removeMovie(index - 1);
             WatchList.displayWatchList();
         }
-
-
     }
 
     public static void genreSelectorNav(){
@@ -203,10 +198,6 @@ public class Navagation {
         if(userInput > 0 &&  userInput <= watchList.size()){
             Main.showMovieDetails(watchList.get(userInput - 1), "Watch List", userInput);
         }
-
-
-
-
     }
 
 }
