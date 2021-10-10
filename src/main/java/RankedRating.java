@@ -39,12 +39,6 @@ public class RankedRating extends API {
             System.out.println("````````````````````````````````````````````````````````````");
             n++;
         }
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("- Enter number next to movie to see more detail.");
-        System.out.println("- Enter 1111 to go back to the main menu.");
-        System.out.println("- Enter 00 to exit the program.");
-        System.out.println("============================================================");
-        System.out.println("Selection => ");
         Navagation.movieSelectionNav(rankedList, "Rating");
     }
 }

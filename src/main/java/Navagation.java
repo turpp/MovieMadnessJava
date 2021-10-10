@@ -38,6 +38,13 @@ public class Navagation {
     }
 
     public static void movieSelectionNav(List<MovieDb> popularMovieList, String section){
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("- Enter number next to movie to see more detail.");
+        System.out.println("- Enter 1111 to go back to the main menu.");
+        System.out.println("- Enter 00 to exit the program.");
+        System.out.println("============================================================");
+        System.out.println("Selection => ");
+
         int userSelection = scan.nextInt();
 
         if(userSelection >=1 && userSelection <= 200){
@@ -51,13 +58,8 @@ public class Navagation {
         else {
             System.out.println("Invalid entry. Please enter the number next to the selection you want.");
             System.out.println("`````````````````````````````````````````````````````````````");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            System.out.println("- Enter number next to movie to see more detail.");
-            System.out.println("- Enter 1111 to go back to the main menu.");
-            System.out.println("- Enter 00 to exit the program.");
-            System.out.println("============================================================");
-            System.out.println("Section => ");
-            Navagation.movieSelectionNav(popularMovieList, "Popular");
+
+            Navagation.movieSelectionNav(popularMovieList, section);
         }
     }
 
