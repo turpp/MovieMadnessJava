@@ -181,7 +181,21 @@ public class Navagation {
     }
 
     public static void watchListNav(ArrayList<MovieDb> watchList){
+        if(WatchList.getWatchList().size()==0){
+            System.out.println("");
+            System.out.println("Enter 0 to go back to Main Menu");
+            System.out.println("=>");
+            int userInput = scan.nextInt();
+            if(userInput == 0){
+                Main.mainMenu();
+            } else {
+                System.out.println("Invalid input. Try again.");
+                Navagation.watchListNav(watchList);
+            }
+        }
+        System.out.println("");
         System.out.println("Enter the movie index for more detail or 0 to go back to Main Menu.");
+        System.out.println("=>");
         int userInput = scan.nextInt();
         if(userInput == 0){
             Main.mainMenu();
