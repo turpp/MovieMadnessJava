@@ -41,12 +41,7 @@ public class Genre extends API {
         System.out.println("8. Documentary");
         System.out.println("------------------------------------------------------------");
 
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("- Enter number next to Genre to see movies.");
-        System.out.println("- Enter 1111 to go back to the main menu.");
-        System.out.println("- Enter 00 to exit the program.");
-        System.out.println("============================================================");
-        System.out.println("Selection =>  ");
+
         Navagation.genreSelectorNav();
     }
 
@@ -59,12 +54,6 @@ public class Genre extends API {
             n++;
         }
 
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("- Enter number next to movie to see more detail.");
-        System.out.println("- Enter 1111 to go back to the main menu.");
-        System.out.println("- Enter 00 to exit the program.");
-        System.out.println("============================================================");
-        System.out.println("Selection => ");
         Navagation.genreMovieNav(selectedGenre);
     }
 
@@ -118,7 +107,6 @@ public class Genre extends API {
             case 99:
                 if(documentaryMovies.size() == 0) {
                     fetchGenreMovies(99);
-
                 }
                 selectedGenre = documentaryMovies;
                 break;
