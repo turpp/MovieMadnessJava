@@ -1,15 +1,11 @@
 import info.movito.themoviedbapi.TmdbApi;
 import info.movito.themoviedbapi.TmdbMovies;
 import info.movito.themoviedbapi.model.MovieDb;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public  class Main extends API {
 
     public static void main (String[] args) {
-
         System.out.println("--------------------------");
         System.out.println("Welcome to Movie Madness!");
         System.out.println("--------------------------");
@@ -33,10 +29,8 @@ public  class Main extends API {
       System.out.println("3. Movies by Rating");
       System.out.println("4. View Watch List");
       System.out.println("`````````````````````````````````````````````````````````````");
-
-
       System.out.println("Selection =>  ");
-      //enter nav function
+
       Navagation.mainMenuNav();
   }
 
@@ -65,7 +59,6 @@ public  class Main extends API {
                 break;
             default:
                 System.out.println("Genre: " + movieDetail.getGenres().get(0).getName());
-
         }
 
         System.out.println("Vote Average: " + movieDetail.getVoteAverage());
@@ -73,13 +66,8 @@ public  class Main extends API {
         System.out.println("Overview: ");
         System.out.println(movieDetail.getOverview());
         System.out.println("");
-        //put in movie detail menu here
+
         Navagation.movieDetailMenu(section, movieDetail, index);
-//        System.out.println("____________________________");
-//        System.out.println(" 1. Back to Movie Selection");
-//        System.out.println(" 2. Back to Main Menu");
-//        System.out.println(" 00. Exit program");
-//        detailMenu(section);
     }
 
     public static void detailMenu(String section){
@@ -128,7 +116,4 @@ public  class Main extends API {
                 }
         }
     }
-
-
-
 }
